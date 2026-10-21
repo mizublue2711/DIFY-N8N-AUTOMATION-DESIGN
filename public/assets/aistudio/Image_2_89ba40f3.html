@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="vi">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Hybrid Agentic Workflow 2.0 - Mindmap Infographic</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          },
+          colors: {
+            brand: {
+              n8n: '#FF6D5A',
+              dify: '#1677FF',
+              vps: '#E97171',
+              r2: '#F38020',
+              pinecone: '#000000',
+              accent: '#10B981',
+              neon: '#6366F1'
+            }
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    /* Custom scrollbars and glowing effects */
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-thumb { background: #374151; border-radius: 4px; }
+    .glow-orange { box-shadow: 0 0 25px -5px rgba(255, 109, 90, 0.25); }
+    .glow-blue { box-shadow: 0 0 25px -5px rgba(22, 119, 255, 0.25); }
+    .glow-purple { box-shadow: 0 0 25px -5px rgba(147, 51, 234, 0.25); }
+    .glow-emerald { box-shadow: 0 0 25px -5px rgba(16, 185, 129, 0.25); }
+  </style>
+</head>
+<body class="bg-slate-950 text-slate-100 font-sans antialiased min-h-screen pb-14 selection:bg-indigo-500/30 selection:text-indigo-200">
+<!-- Ambient Glow Background -->
+<div class="fixed inset-0 pointer-events-none overflow-hidden z-0">
+<div class="absolute -top-40 -left-40 w-96 h-96 bg-indigo-600/15 rounded-full blur-3xl"></div>
+<div class="absolute top-1/3 -right-40 w-96 h-96 bg-rose-600/10 rounded-full blur-3xl"></div>
+<div class="absolute bottom-20 left-10 w-80 h-80 bg-blue-600/15 rounded-full blur-3xl"></div>
+</div>
+<div class="relative z-10 max-w-md mx-auto px-4 pt-6 space-y-6">
+<!-- Top Badge & Header -->
+<div class="p-3 rounded-2xl bg-gradient-to-r from-rose-950/80 via-amber-950/70 to-slate-900 border border-rose-500/50 shadow-lg space-y-2.5 animate-pulse">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-rose-500/20 text-rose-300 border border-rose-500/40 flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-rose-500 animate-ping"></span>
+        SYSTEM INCIDENT ALERT
+      </span>
+<span class="text-xs font-bold text-amber-300">⚠️ QA REJECTED &amp; RETRY TRIGGERED</span>
+</div>
+<span class="text-[10px] font-mono px-2 py-0.5 rounded bg-rose-500/20 text-rose-300 border border-rose-500/30 font-semibold">Attempt 2/3</span>
+</div>
+<div class="grid grid-cols-3 gap-1.5 text-[10px] font-mono">
+<div class="p-1.5 rounded-lg bg-slate-950/80 border border-slate-800 text-slate-300">
+<span class="text-slate-500 block text-[9px]">Job ID</span>
+<span class="text-amber-400 font-bold">#JOB-98240</span>
+</div>
+<div class="p-1.5 rounded-lg bg-slate-950/80 border border-rose-500/30 text-rose-300">
+<span class="text-slate-500 block text-[9px]">VPS RAM Spike</span>
+<span class="font-bold text-rose-400">3.7G/4G (Swap OK)</span>
+</div>
+<div class="p-1.5 rounded-lg bg-slate-950/80 border border-emerald-500/30 text-emerald-300">
+<span class="text-slate-500 block text-[9px]">Auto-Recovery</span>
+<span class="font-bold text-emerald-400">Self-Healing ON</span>
+</div>
+</div>
+</div><header class="text-center space-y-2">
+<div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-gradient-to-r from-orange-500/20 via-blue-500/20 to-emerald-500/20 border border-slate-800 text-slate-300">
+<span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+<span>AGENTIC SYSTEM SPEC 2.0</span>
+</div>
+<h1 class="text-2xl font-extrabold tracking-tight bg-gradient-to-r from-white via-slate-200 to-slate-400 bg-clip-text text-transparent">
+        Sơ Đồ Kiến Trúc &amp; Kế Hoạch
+      </h1>
+<p class="text-xs text-slate-400 leading-relaxed font-medium">
+        Hệ thống tự động hóa Hybrid: n8n điều phối + Dify AI + VPS Hetzner chạy ArtCraft Model
+      </p>
+</header>
+<!-- Quick Navigation / Stats Bar -->
+<div class="grid grid-cols-3 gap-2 p-1.5 bg-slate-900/80 backdrop-blur-md rounded-2xl border border-slate-800/80 text-center shadow-lg">
+<a class="py-2 px-1 rounded-xl bg-slate-800/50 hover:bg-slate-800 transition text-[11px] font-semibold text-slate-300 flex flex-col items-center" href="#section-architecture">
+<span class="text-orange-400 text-base">🗺️</span>
+<span>Kiến Trúc 2.0</span>
+</a>
+<a class="py-2 px-1 rounded-xl bg-slate-800/50 hover:bg-slate-800 transition text-[11px] font-semibold text-slate-300 flex flex-col items-center" href="#section-pipeline">
+<span class="text-blue-400 text-base">⚡</span>
+<span>Dòng Dữ Liệu</span>
+</a>
+<a class="py-2 px-1 rounded-xl bg-slate-800/50 hover:bg-slate-800 transition text-[11px] font-semibold text-slate-300 flex flex-col items-center" href="#section-roadmap">
+<span class="text-emerald-400 text-base">🎯</span>
+<span>4 Giai Đoạn</span>
+</a>
+</div>
+<!-- ========================================== -->
+<!-- PHẦN 1: 3 TRỤ CỘT KIẾN TRÚC TỔNG THỂ -->
+<!-- ========================================== -->
+<section class="space-y-3" id="section-architecture">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="flex h-6 w-6 items-center justify-center rounded-lg bg-orange-500/20 text-orange-400 text-xs font-bold border border-orange-500/30">1</span>
+<h2 class="text-base font-bold text-white tracking-wide">3 TẦNG KIẾN TRÚC MỚI</h2>
+</div>
+<span class="text-[10px] uppercase font-mono px-2 py-0.5 rounded bg-slate-800 text-slate-400">Hybrid System</span>
+</div>
+<!-- Pillar 1: n8n Orchestrator -->
+<div class="relative bg-gradient-to-b from-slate-900/90 to-slate-950/90 rounded-2xl p-4 border border-orange-500/30 glow-orange">
+<div class="flex items-center justify-between mb-3">
+<div class="flex items-center gap-2.5">
+<div class="w-9 h-9 rounded-xl bg-orange-500/20 border border-orange-500/40 flex items-center justify-center text-orange-400 font-black text-sm">
+              n8n
+            </div>
+<div>
+<h3 class="text-sm font-bold text-white">n8n Orchestration</h3>
+<p class="text-[10px] text-orange-300/80 font-mono font-medium">Trạm Điều Phối &amp; Quản Trị Pipeline</p>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded-full text-[10px] font-mono bg-orange-500/10 text-orange-300 border border-orange-500/20">
+            Concurrency = 1
+          </span>
+</div>
+<div class="space-y-2 text-xs">
+<!-- Item A -->
+<div class="flex items-start gap-2.5 p-2 rounded-xl bg-slate-950/60 border border-slate-800/80">
+<span class="text-orange-400 mt-0.5">📥</span>
+<div>
+<p class="font-semibold text-slate-200">Webhook Trigger &amp; Master Payload</p>
+<p class="text-[11px] text-slate-400">Khởi tạo Payload JSON chuẩn hóa, giới hạn xử lý tuần tự 1 luồng duy nhất tránh nghẽn RAM.</p>
+</div>
+</div>
+<!-- Item B -->
+<div class="flex items-start gap-2.5 p-2 rounded-xl bg-slate-950/60 border border-slate-800/80">
+<span class="text-orange-400 mt-0.5">🌲</span>
+<div>
+<p class="font-semibold text-slate-200">Pinecone Vector Search (RAG)</p>
+<p class="text-[11px] text-slate-400">Truy vấn ngữ cảnh &amp; tri thức đối ứng gắn kèm vào Master Payload.</p>
+</div>
+</div>
+<!-- Item C -->
+<div class="flex items-start gap-2.5 p-2 rounded-xl bg-slate-950/60 border border-slate-800/80">
+<span class="text-orange-400 mt-0.5">☁️</span>
+<div>
+<p class="font-semibold text-slate-200">Bơm Xả Cloudflare R2 &amp; Dọn /tmp</p>
+<p class="text-[11px] text-slate-400">Đọc buffer nhị phân tải lên R2, ghi đè public URL vào Payload và xóa sạch đệm VPS.</p>
+</div>
+</div>
+<!-- Item D -->
+<div class="flex items-start gap-2.5 p-2 rounded-xl bg-rose-950/40 border border-rose-500/50">
+<span class="text-rose-400 mt-0.5">⚠️</span>
+<div class="w-full">
+<div class="flex items-center justify-between">
+<p class="font-semibold text-rose-200">QA Vòng 1 &amp; 2 (Gemini / Claude)</p>
+<span class="text-[9px] font-mono px-1.5 py-0.2 rounded bg-rose-500/20 text-rose-300 border border-rose-500/40 font-bold">Điểm: 6.2/10 (Fail)</span>
+</div>
+<p class="text-[11px] text-rose-300/80 mt-0.5">Tiêu chuẩn ≥ 8.5. Kích hoạt <span class="text-amber-300 font-semibold">Retry Logic Node</span>: Tự động điều chỉnh Prompt, cấp seed mới &amp; phát lệnh render lại.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Connector Badge -->
+<div class="flex justify-center -my-1">
+<div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-900 border border-slate-700/80 text-[10px] text-slate-300 font-mono shadow-md">
+<span>HTTP Request (Chỉ gửi Metadata &amp; Public URL)</span>
+<span class="text-blue-400 animate-bounce">↓</span>
+</div>
+</div>
+<!-- Pillar 2: Dify Cloud -->
+<div class="relative bg-gradient-to-b from-slate-900/90 to-slate-950/90 rounded-2xl p-4 border border-blue-500/30 glow-blue">
+<div class="flex items-center justify-between mb-3">
+<div class="flex items-center gap-2.5">
+<div class="w-9 h-9 rounded-xl bg-blue-500/20 border border-blue-500/40 flex items-center justify-center text-blue-400 font-black text-sm">
+              Dify
+            </div>
+<div>
+<h3 class="text-sm font-bold text-white">Dify Cloud</h3>
+<p class="text-[10px] text-blue-300/80 font-mono font-medium">Bộ Não Suy Luận &amp; Điều Phối Agent</p>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded-full text-[10px] font-mono bg-blue-500/10 text-blue-300 border border-blue-500/20">
+            Agentic Core
+          </span>
+</div>
+<div class="space-y-2 text-xs">
+<div class="flex items-start gap-2.5 p-2 rounded-xl bg-slate-950/60 border border-slate-800/80">
+<span class="text-blue-400 mt-0.5">🧠</span>
+<div>
+<p class="font-semibold text-slate-200">Tiếp Nhận Payload &amp; Sinh Seed</p>
+<p class="text-[11px] text-slate-400">Suy luận bước kế tiếp, sinh mã <code class="text-blue-300 bg-blue-950 px-1 py-0.5 rounded font-mono">global_seed</code> để đồng nhất phong cách.</p>
+</div>
+</div>
+<div class="flex items-start gap-2.5 p-2 rounded-xl bg-slate-950/60 border border-slate-800/80">
+<span class="text-blue-400 mt-0.5">🔌</span>
+<div>
+<p class="font-semibold text-slate-200">MCP Client qua Cloudflare Tunnel</p>
+<p class="text-[11px] text-slate-400">Kích hoạt Tool gọi MCP Server cục bộ bảo mật qua SSE mà không cần mở port public.</p>
+</div>
+</div>
+<div class="flex items-start gap-2.5 p-2 rounded-xl bg-amber-950/40 border border-amber-500/40">
+<span class="text-amber-400 mt-0.5">🔄</span>
+<div>
+<div class="flex items-center gap-1.5">
+<p class="font-semibold text-amber-200">Tái Cấu Trúc Seed &amp; Refine Prompt</p>
+<span class="text-[9px] font-mono px-1 rounded bg-amber-500/20 text-amber-300">Retry Injected</span>
+</div>
+<p class="text-[11px] text-slate-300 mt-0.5">Nhận phản hồi từ QA, sinh mã seed mới <code class="text-amber-300 bg-slate-950 px-1 py-0.5 rounded font-mono">seed: 8492042</code> và tự động gia cố độ tương phản trong system prompt.</p>
+</div>
+</div></div>
+</div>
+<!-- Connector Badge -->
+<div class="flex justify-center -my-1">
+<div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-900 border border-slate-700/80 text-[10px] text-slate-300 font-mono shadow-md">
+<span>Cloudflare Tunnel SSE (Bảo Mật 2 Chiều)</span>
+<span class="text-rose-400 animate-bounce">↓</span>
+</div>
+</div>
+<!-- Pillar 3: Hetzner VPS -->
+<div class="relative bg-gradient-to-b from-slate-900/90 to-slate-950/90 rounded-2xl p-4 border border-rose-500/30 glow-purple">
+<div class="flex items-center justify-between mb-3">
+<div class="flex items-center gap-2.5">
+<div class="w-9 h-9 rounded-xl bg-rose-500/20 border border-rose-500/40 flex items-center justify-center text-rose-400 font-black text-sm">
+              VPS
+            </div>
+<div>
+<h3 class="text-sm font-bold text-white">VPS Hetzner 4GB</h3>
+<p class="text-[10px] text-rose-300/80 font-mono font-medium">Cơ Bắp Thực Thi &amp; Local Compute</p>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded-full text-[10px] font-mono bg-rose-500/10 text-rose-300 border border-rose-500/20">
+            Swap 8GB Active
+          </span>
+</div>
+<div class="space-y-2 text-xs">
+<div class="flex items-start gap-2.5 p-2 rounded-xl bg-slate-950/60 border border-slate-800/80">
+<span class="text-rose-400 mt-0.5">🛡️</span>
+<div>
+<p class="font-semibold text-slate-200">MCP Server Wrapper (Node/Rust)</p>
+<p class="text-[11px] text-slate-400">Expose tool <code class="text-rose-300 bg-rose-950 px-1 py-0.5 rounded font-mono">generate_banner_artcraft</code> đón nhận tham số từ Dify.</p>
+</div>
+</div>
+<div class="flex items-start gap-2.5 p-2 rounded-xl bg-slate-950/60 border border-slate-800/80">
+<span class="text-rose-400 mt-0.5">⚙️</span>
+<div>
+<p class="font-semibold text-slate-200">ArtCraft Rust CLI (Headless Mode)</p>
+<p class="text-[11px] text-slate-400">Chu kỳ chuẩn: <span class="text-rose-300 font-semibold">Load Model ➔ Render Banner ➔ Unload giải phóng RAM</span>.</p>
+</div>
+</div>
+<div class="flex items-start gap-2.5 p-2 rounded-xl bg-slate-950/60 border border-emerald-500/40">
+<span class="text-emerald-400 mt-0.5">🛡️</span>
+<div>
+<div class="flex items-center gap-1.5">
+<p class="font-semibold text-slate-200">Buffer Cục Bộ &amp; Swap 8GB Bảo Vệ OOM</p>
+<span class="text-[9px] font-mono px-1 rounded bg-emerald-500/10 text-emerald-300 border border-emerald-500/30">OOM Prevented</span>
+</div>
+<p class="text-[11px] text-slate-400 mt-0.5">Swap 8GB đã hấp thụ thành công đỉnh tải spike RAM (3.7GB), không sập VPS. Lệnh Purge <code class="font-mono text-amber-300">/tmp/artcraft_buffer</code> đã xóa sạch file artifact lỗi trước khi nạp lượt retry.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ========================================== -->
+<!-- PHẦN 2: DÒNG CHẢY DỮ LIỆU ĐỒNG BỘ (INFOGRAPHIC TIMELINE) -->
+<!-- ========================================== -->
+<section class="bg-slate-900/80 border border-slate-800 rounded-2xl p-4 space-y-3" id="section-pipeline">
+<div class="flex items-center justify-between">
+<h3 class="text-sm font-bold text-white flex items-center gap-2">
+<span>🔄</span>
+<span>Chu Trình Dữ Liệu Khép Kín (E2E)</span>
+</h3>
+<span class="text-[10px] text-emerald-400 bg-emerald-950/60 border border-emerald-800/60 px-2 py-0.5 rounded-full font-mono">
+          Anti-OOM Design
+        </span>
+</div>
+<!-- Step 1 -->
+<div class="relative pl-6 border-l-2 border-orange-500/50 pb-3">
+<span class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-slate-950 border-2 border-orange-500 flex items-center justify-center text-[9px] font-bold text-orange-400">1</span>
+<p class="text-xs font-semibold text-slate-200">Webhook Trigger ➔ Nạp Master Payload JSON</p>
+<p class="text-[11px] text-slate-400 mt-0.5">Khóa Concurrency = 1. Song song gọi Pinecone Vector Search để bổ sung ngữ cảnh tri thức.</p>
+</div>
+<!-- Step 2 -->
+<div class="relative pl-6 border-l-2 border-blue-500/50 pb-3">
+<span class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-slate-950 border-2 border-blue-500 flex items-center justify-center text-[9px] font-bold text-blue-400">2</span>
+<p class="text-xs font-semibold text-slate-200">Gọi Dify Cloud ➔ Suy Luận &amp; Điều Phối MCP</p>
+<p class="text-[11px] text-slate-400 mt-0.5">Payload chỉ gửi Metadata &amp; URL (không ôm file nhị phân). Dify sinh seed &amp; phát lệnh tới VPS qua Tunnel.</p>
+</div>
+<!-- Step 3 -->
+<div class="relative pl-6 border-l-2 border-rose-500/50 pb-3">
+<span class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-slate-950 border-2 border-rose-500 flex items-center justify-center text-[9px] font-bold text-rose-400">3</span>
+<p class="text-xs font-semibold text-slate-200">Hetzner VPS Render ➔ Kết Xuất Đệm /tmp</p>
+<p class="text-[11px] text-slate-400 mt-0.5">ArtCraft CLI dựng hình với 8GB Swap đệm an toàn, lưu kết quả ra <code class="text-rose-300 font-mono text-[10px]">/tmp/artcraft_buffer</code>.</p>
+</div>
+<!-- Step 4 -->
+<div class="relative pl-6 border-l-2 border-amber-500/50 pb-3">
+<span class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-slate-950 border-2 border-amber-500 flex items-center justify-center text-[9px] font-bold text-amber-400">4</span>
+<p class="text-xs font-semibold text-slate-200">Bơm R2 ➔ Nhận Public URL ➔ Dọn Dẹp /tmp</p>
+<p class="text-[11px] text-slate-400 mt-0.5">n8n chuyển file lên Cloudflare R2, cập nhật key URL vào Master Payload và chạy lệnh <code class="text-amber-300 font-mono text-[10px]">rm -f</code> ngay.</p>
+</div>
+<!-- Step 5 -->
+<div class="relative pl-6 border-l-2 border-rose-500/80">
+<span class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-slate-950 border-2 border-rose-500 flex items-center justify-center text-[9px] font-bold text-rose-400 animate-pulse">5</span>
+<div class="flex items-center justify-between">
+<p class="text-xs font-semibold text-rose-200">QA Đánh Giá ➔ REJECTED (Điểm 6.2/10)</p>
+<span class="text-[9px] font-mono px-2 py-0.5 rounded-full bg-rose-500/20 text-rose-300 border border-rose-500/40 font-bold animate-bounce">RETRYING</span>
+</div>
+<p class="text-[11px] text-slate-400 mt-0.5">Chưa đạt chuẩn chất lượng mỹ thuật. n8n tự động kích hoạt nhánh Retry, bảo toàn Concurrency = 1 để tránh xung đột tải.</p>
+<div class="mt-2 p-2 rounded-xl bg-rose-950/30 border border-rose-500/30 flex items-center justify-between text-[11px]">
+<span class="text-rose-300 flex items-center gap-1.5 font-medium">
+<span>🔁</span>
+<span>Loopback: Vòng ngược về Bước 2 với Seed &amp; Prompt mới</span>
+</span>
+<span class="text-[9px] font-mono text-amber-400 font-bold bg-amber-500/10 px-1.5 py-0.5 rounded border border-amber-500/30">Queue Locked</span>
+</div>
+</div>
+</section>
+<!-- ========================================== -->
+<!-- PHẦN 3: KẾ HOẠCH HÀNH ĐỘNG ƯU TIÊN (4 GIAI ĐOẠN) -->
+<!-- ========================================== -->
+<div class="p-4 rounded-2xl bg-gradient-to-b from-amber-950/40 to-slate-900 border border-amber-500/30 shadow-lg space-y-3">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="text-base">🛠️</span>
+<h3 class="text-xs font-bold uppercase tracking-wider text-amber-400">Cơ Chế Tự Phục Hồi (Self-Healing Diagnostic)</h3>
+</div>
+<span class="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-300 border border-emerald-500/30">Autonomous</span>
+</div>
+<div class="space-y-2 text-xs text-slate-300">
+<div class="p-2.5 rounded-xl bg-slate-950/70 border border-slate-800 space-y-1">
+<p class="font-semibold text-slate-200 flex items-center gap-1.5">
+<span class="text-emerald-400">✓</span>
+<span>Tại sao VPS 4GB không bị sập (No Crash)?</span>
+</p>
+<p class="text-[11px] text-slate-400 leading-relaxed">
+        Khi ArtCraft Model tăng đột biến lên 3.7GB RAM, Linux Kernel tự động hoán chuyển 1.2GB trang nhớ nhàn rỗi vào <b>Swapfile 8GB</b>. Không kích hoạt OOM Killer, tiến trình kết xuất vẫn hoàn tất trọn vẹn.
+      </p>
+</div>
+<div class="p-2.5 rounded-xl bg-slate-950/70 border border-slate-800 space-y-1">
+<p class="font-semibold text-slate-200 flex items-center gap-1.5">
+<span class="text-emerald-400">✓</span>
+<span>Quy trình dọn dẹp và vòng lặp tự động (Zero-leak)</span>
+</p>
+<p class="text-[11px] text-slate-400 leading-relaxed">
+        File lỗi trong <code class="text-amber-300 font-mono">/tmp/artcraft_buffer</code> bị xóa sạch ngay trước khi yêu cầu Dify tái tạo với <code class="text-blue-300 font-mono">global_seed: 8492042</code>, hoàn toàn không cần can thiệp con người thủ công.
+      </p>
+</div>
+</div>
+</div><section class="space-y-3" id="section-roadmap">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="flex h-6 w-6 items-center justify-center rounded-lg bg-emerald-500/20 text-emerald-400 text-xs font-bold border border-emerald-500/30">2</span>
+<h2 class="text-base font-bold text-white tracking-wide">KẾ HOẠCH HÀNH ĐỘNG ƯU TIÊN</h2>
+</div>
+<span class="text-[10px] text-amber-300 bg-amber-950/60 border border-amber-800/60 px-2 py-0.5 rounded font-mono">Không nhảy cóc</span>
+</div>
+<!-- GIAI ĐOẠN 1 -->
+<div class="bg-slate-900/90 rounded-2xl p-4 border border-rose-500/30 space-y-3">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="text-lg">🎯</span>
+<div>
+<h3 class="text-xs font-bold uppercase tracking-wider text-rose-400">GIAI ĐOẠN 1: GIA CỐ HẠ TẦNG &amp; n8n</h3>
+<p class="text-[11px] text-slate-400 font-medium">Mục tiêu: Đảm bảo VPS không crash OOM khi load model</p>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded bg-rose-500/10 border border-rose-500/30 text-rose-300 text-[10px] font-bold">ƯU TIÊN 1</span>
+</div>
+<div class="space-y-2 text-xs">
+<!-- Task 1.1 -->
+<div class="p-2.5 rounded-xl bg-slate-950/70 border border-slate-800">
+<div class="flex items-center justify-between font-semibold text-slate-200">
+<span class="flex items-center gap-1.5">
+<input checked="" class="accent-rose-500 rounded" disabled="" type="checkbox"/>
+<span>1. Tạo Swap Space 8GB trên VPS</span>
+</span>
+<span class="text-[10px] font-mono text-rose-400">Sống còn</span>
+</div>
+<p class="text-[11px] text-slate-400 mt-1">Chạy lệnh cấp phát swap đệm để ArtCraft nạp model mà không tràn RAM 4GB:</p>
+<div class="mt-1.5 p-2 rounded-lg bg-slate-900 text-slate-300 font-mono text-[10px] overflow-x-auto border border-slate-800">
+<code>fallocate -l 8G /swapfile &amp;&amp; chmod 600 /swapfile &amp;&amp; mkswap /swapfile &amp;&amp; swapon /swapfile</code>
+</div>
+</div>
+<!-- Task 1.2 -->
+<div class="p-2.5 rounded-xl bg-slate-950/70 border border-slate-800">
+<div class="flex items-center justify-between font-semibold text-slate-200">
+<span class="flex items-center gap-1.5">
+<input checked="" class="accent-rose-500 rounded" disabled="" type="checkbox"/>
+<span>2. Tạo Thư Mục Đệm Buffer</span>
+</span>
+<span class="text-[10px] font-mono text-slate-400">I/O Local</span>
+</div>
+<div class="mt-1.5 p-2 rounded-lg bg-slate-900 text-slate-300 font-mono text-[10px] border border-slate-800">
+<code>mkdir -p /tmp/artcraft_buffer &amp;&amp; chmod 777 /tmp/artcraft_buffer</code>
+</div>
+</div>
+<!-- Task 1.3 -->
+<div class="p-2.5 rounded-xl bg-slate-950/70 border border-slate-800">
+<div class="flex items-center justify-between font-semibold text-slate-200">
+<span class="flex items-center gap-1.5">
+<input checked="" class="accent-rose-500 rounded" disabled="" type="checkbox"/>
+<span>3. Khóa Chặt Concurrency Trên n8n</span>
+</span>
+<span class="text-[10px] font-mono text-emerald-400">Safe Rule</span>
+</div>
+<p class="text-[11px] text-slate-400 mt-1">Vào Settings Workflow n8n ➔ Bật <b>Concurrency Control</b> ➔ Set <code class="text-orange-400 font-mono">Limit Concurrent Executions = 1</code>.</p>
+</div>
+</div>
+</div>
+<!-- GIAI ĐOẠN 2 -->
+<div class="bg-slate-900/90 rounded-2xl p-4 border border-blue-500/30 space-y-3">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="text-lg">🎯</span>
+<div>
+<h3 class="text-xs font-bold uppercase tracking-wider text-blue-400">GIAI ĐOẠN 2: THIẾT LẬP ARTCRAFT &amp; MCP SERVER</h3>
+<p class="text-[11px] text-slate-400 font-medium">Mục tiêu: Đóng gói CLI và expose qua Cloudflare Tunnel</p>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded bg-blue-500/10 border border-blue-500/30 text-blue-300 text-[10px] font-bold">ƯU TIÊN 2</span>
+</div>
+<div class="space-y-2 text-xs">
+<div class="p-2.5 rounded-xl bg-slate-950/70 border border-slate-800">
+<p class="font-semibold text-slate-200">1. Cài đặt ArtCraft Rust CLI</p>
+<p class="text-[11px] text-slate-400 mt-0.5">Kiểm tra render headless qua dòng lệnh terminal và kiểm tra file xuất tại <code class="text-blue-300 font-mono">/tmp/artcraft_buffer</code>.</p>
+</div>
+<div class="p-2.5 rounded-xl bg-slate-950/70 border border-slate-800">
+<p class="font-semibold text-slate-200">2. Dựng MCP Server Wrapper (Node/Rust)</p>
+<p class="text-[11px] text-slate-400 mt-0.5">Viết script <code class="text-blue-300 font-mono">mcp_server.js</code> định nghĩa tool <code class="text-emerald-400 font-mono">generate_banner_artcraft</code> nhận tham số (prompt, seed, dimensions).</p>
+</div>
+<div class="p-2.5 rounded-xl bg-slate-950/70 border border-slate-800">
+<p class="font-semibold text-slate-200">3. Thiết lập Cloudflare Tunnel</p>
+<p class="text-[11px] text-slate-400 mt-0.5">Expose port của MCP Wrapper ra subdomain an toàn (ví dụ: <code class="text-indigo-300 font-mono">mcp.thuyvux.site</code>) - Tuyệt đối không mở port VPS trực tiếp.</p>
+</div>
+</div>
+</div>
+<!-- GIAI ĐOẠN 3 -->
+<div class="bg-slate-900/90 rounded-2xl p-4 border border-amber-500/30 space-y-3">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="text-lg">🎯</span>
+<div>
+<h3 class="text-xs font-bold uppercase tracking-wider text-amber-400">GIAI ĐOẠN 3: ĐỊNH TUYẾN DỮ LIỆU &amp; R2</h3>
+<p class="text-[11px] text-slate-400 font-medium">Mục tiêu: Xử lý bơm - xả file nhị phân &amp; cập nhật Payload</p>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded bg-amber-500/10 border border-amber-500/30 text-amber-300 text-[10px] font-bold">ƯU TIÊN 3</span>
+</div>
+<div class="space-y-2 text-xs">
+<div class="p-2.5 rounded-xl bg-slate-950/70 border border-slate-800 flex items-start gap-2">
+<span class="text-amber-400 font-bold font-mono">3.1</span>
+<div>
+<p class="font-semibold text-slate-200">Code Node khởi tạo Master Payload JSON</p>
+<p class="text-[11px] text-slate-400">Thiết lập cấu trúc schema chuẩn ngay sau nút tiếp nhận Webhook.</p>
+</div>
+</div>
+<div class="p-2.5 rounded-xl bg-slate-950/70 border border-slate-800 flex items-start gap-2">
+<span class="text-amber-400 font-bold font-mono">3.2</span>
+<div>
+<p class="font-semibold text-slate-200">Cấu hình Cụm Bơm - Xả Cloudflare R2</p>
+<p class="text-[11px] text-slate-400">Đọc binary từ buffer đệm ➔ Push qua Cloudflare R2 S3 API ➔ Nhận Public URL tương ứng.</p>
+</div>
+</div>
+<div class="p-2.5 rounded-xl bg-slate-950/70 border border-slate-800 flex items-start gap-2">
+<span class="text-amber-400 font-bold font-mono">3.3</span>
+<div>
+<p class="font-semibold text-slate-200">Nút Dọn dẹp cục bộ (Purge Node)</p>
+<p class="text-[11px] text-slate-400">Kích hoạt lệnh <code class="text-amber-300 font-mono">rm -f /tmp/artcraft_buffer/*</code> ngay khi R2 phản hồi 200 OK.</p>
+</div>
+</div>
+<div class="p-2.5 rounded-xl bg-slate-950/70 border border-slate-800 flex items-start gap-2">
+<span class="text-amber-400 font-bold font-mono">3.4</span>
+<div>
+<p class="font-semibold text-slate-200">Cập nhật URL vào Master Payload</p>
+<p class="text-[11px] text-slate-400">Ghi đè URL mới vào key tương ứng (VD: <code class="text-emerald-300 font-mono">banner_2d_url</code>) phục vụ QA &amp; bước kế.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- GIAI ĐOẠN 4 -->
+<div class="bg-slate-900/90 rounded-2xl p-4 border border-emerald-500/30 space-y-3">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="text-lg">🎯</span>
+<div>
+<h3 class="text-xs font-bold uppercase tracking-wider text-emerald-400">GIAI ĐOẠN 4: NÂNG CẤP BỘ NÃO DIFY CLOUD</h3>
+<p class="text-[11px] text-slate-400 font-medium">Mục tiêu: Khai báo MCP &amp; đóng vai Orchestrator hoàn chỉnh</p>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 text-[10px] font-bold">ƯU TIÊN 4</span>
+</div>
+<div class="space-y-2 text-xs">
+<div class="p-2.5 rounded-xl bg-slate-950/70 border border-slate-800">
+<p class="font-semibold text-slate-200">1. Khai báo MCP Server trên Dify Cloud</p>
+<p class="text-[11px] text-slate-400 mt-0.5">Vào Dify ➔ Tools ➔ <b>Add MCP Server</b> ➔ Dán URL Cloudflare Tunnel bảo mật vừa tạo ở Giai đoạn 2.</p>
+</div>
+<div class="p-2.5 rounded-xl bg-slate-950/70 border border-slate-800">
+<p class="font-semibold text-slate-200">2. Viết lại System Prompt Chuẩn Agentic</p>
+<p class="text-[11px] text-slate-400 mt-0.5">Huấn luyện Dify đóng vai trò Agentic Orchestrator: tự đọc Master Payload, sinh mã <code class="text-emerald-300 font-mono">global_seed</code> và tự động gọi ArtCraft MCP Tool khi có nhu cầu render.</p>
+</div>
+</div>
+</div>
+<div class="bg-slate-900/90 rounded-2xl p-4 border border-rose-500/40 space-y-3">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="text-lg">🚨</span>
+<div>
+<h3 class="text-xs font-bold uppercase tracking-wider text-rose-400">QUY TRÌNH XỬ LÝ SỰ CỐ &amp; GIÁM SÁT TẢI</h3>
+<p class="text-[11px] text-slate-400 font-medium">Checklist kiểm tra khẩn cấp khi hệ thống kích hoạt Retry liên tục</p>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded bg-rose-500/10 border border-rose-500/30 text-rose-300 text-[10px] font-bold">Emergency</span>
+</div>
+<div class="space-y-2 text-xs">
+<div class="p-2.5 rounded-xl bg-slate-950/70 border border-slate-800">
+<div class="flex items-center justify-between font-semibold text-slate-200">
+<span class="flex items-center gap-1.5">
+<input checked="" class="accent-rose-500 rounded" disabled="" type="checkbox"/>
+<span>1. Kiểm tra trạng thái Swap &amp; RAM trực quan</span>
+</span>
+<span class="text-[10px] font-mono text-emerald-400">Active</span>
+</div>
+<div class="mt-1.5 p-2 rounded-lg bg-slate-900 text-slate-300 font-mono text-[10px] border border-slate-800">
+<code>free -h &amp;&amp; swapon --show</code>
+</div>
+</div>
+<div class="p-2.5 rounded-xl bg-slate-950/70 border border-slate-800">
+<div class="flex items-center justify-between font-semibold text-slate-200">
+<span class="flex items-center gap-1.5">
+<input checked="" class="accent-rose-500 rounded" disabled="" type="checkbox"/>
+<span>2. Lệnh cưỡng chế dọn sạch đệm nếu nghẽn I/O</span>
+</span>
+<span class="text-[10px] font-mono text-amber-400">Purge Command</span>
+</div>
+<div class="mt-1.5 p-2 rounded-lg bg-slate-900 text-slate-300 font-mono text-[10px] border border-slate-800">
+<code>rm -rf /tmp/artcraft_buffer/* &amp;&amp; sync &amp;&amp; echo 3 &gt; /proc/sys/vm/drop_caches</code>
+</div>
+</div>
+<div class="p-2.5 rounded-xl bg-slate-950/70 border border-slate-800">
+<div class="flex items-center justify-between font-semibold text-slate-200">
+<span class="flex items-center gap-1.5">
+<input checked="" class="accent-rose-500 rounded" disabled="" type="checkbox"/>
+<span>3. Bật n8n Error Trigger Workflow</span>
+</span>
+<span class="text-[10px] font-mono text-rose-300">Telegram Alert</span>
+</div>
+<p class="text-[11px] text-slate-400 mt-1">Nếu lượt Retry thứ 3 tiếp tục thất bại, n8n tự động phát thông báo khẩn cấp tới kênh Telegram DevOps với đầy đủ Master Payload dump.</p>
+</div>
+</div>
+</div></section>
+<!-- Key Takeaway / Safety Card -->
+<div class="p-4 rounded-2xl bg-gradient-to-r from-emerald-950/40 via-slate-900 to-indigo-950/40 border border-emerald-500/30 text-xs space-y-2">
+<div class="flex items-center gap-2 text-emerald-400 font-bold">
+<span>💡</span>
+<span>Nguyên Tắc Vàng Khi Vận Hành</span>
+</div>
+<p class="text-slate-300 leading-relaxed text-[11px]">
+        1. <b>Payload siêu nhẹ:</b> Không bao giờ truyền binary qua HTTP / Tunnel, chỉ truyền Public R2 URL &amp; Metadata.<br/>
+        2. <b>Bộ nhớ an toàn:</b> Swap 8GB + Concurrency = 1 bảo đảm VPS 4GB Hetzner chạy bền bỉ không bị OOM Killer dừng tiến trình.<br/>
+        3. <b>Zero-leak:</b> Dọn sạch thư mục buffer ngay sau khi R2 xác nhận lưu trữ thành công.
+      </p>
+</div>
+<!-- Footer -->
+<footer class="text-center text-[11px] text-slate-500 py-2">
+      Hybrid Agentic Workflow 2.0 • Trực quan hóa bởi Stitch
+    </footer>
+</div>
+</body>
+</html>

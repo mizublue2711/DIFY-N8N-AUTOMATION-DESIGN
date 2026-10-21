@@ -1,0 +1,6 @@
+{
+  "name": "Agentic System Spec 2.0 - Hybrid Architecture & Workflow",
+  "description": "Kiến trúc hệ thống tự động hóa Hybrid Agentic Workflow: n8n điều phối, Dify AI suy luận, và VPS Hetzner chạy ArtCraft Model với cơ chế tự phục hồi, chống tràn RAM OOM.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
